@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xgen-quality"
+dynamic = ["version"]
+description = "Versioned host-side quality checks for X-Gen modules"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{name = "X-Gen Lab"}]
+dependencies = [
+  "cfgv==3.5.0",
+  "clang-format==19.1.5",
+  "clang-tidy==19.1.0.1",
+  "colorama==0.4.6",
+  "colorlog==6.12.0",
+  "distlib==0.4.3",
+  "filelock==4.0.7",
+  "gcovr==8.3",
+  "identify==2.6.20",
+  "Jinja2==3.1.6",
+  "lxml==6.1.3",
+  "MarkupSafe==3.0.3",
+  "nodeenv==1.11.0",
+  "packaging==26.3",
+  "platformdirs==4.12.2",
+  "pre_commit==4.3.0",
+  "Pygments==2.21.0",
+  "python-discovery==1.6.1",
+  "PyYAML==6.0.3",
+  "virtualenv==21.14.1",
+]
+
+[project.optional-dependencies]
+dev = ["coverage==7.10.7"]
+
+[project.scripts]
+xgen-quality = "xgen_quality:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "xgen_quality.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+xgen_quality = ["policy.json", "templates/*", "templates/.*"]

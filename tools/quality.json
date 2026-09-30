@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "standard_version": "1.0.0",
+  "quality_version": "0.1.0",
+  "public_headers": [],
+  "production_directories": ["src"]
+}

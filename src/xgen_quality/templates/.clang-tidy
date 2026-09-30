@@ -1,0 +1,6 @@
+---
+# X-Gen quality 0.1.0: focused C/C++ analysis, adapted from the CRC pilot.
+Checks: '-*,clang-analyzer-*,bugprone-*,performance-*'
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*[/\\]include[/\\].*'
+FormatStyle: file

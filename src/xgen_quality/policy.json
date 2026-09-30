@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "standard_version": "1.0.0",
+  "tools": {
+    "clang_format": {"command": "clang-format", "environment": "XGEN_CLANG_FORMAT", "version": "19.1.5"},
+    "clang_tidy": {"command": "clang-tidy", "environment": "XGEN_CLANG_TIDY", "version": "19.1.0"},
+    "cppcheck": {"command": "cppcheck", "environment": "XGEN_CPPCHECK", "version": "2.21.0"},
+    "doxygen": {"command": "doxygen", "environment": "XGEN_DOXYGEN", "version": "1.16.0"},
+    "gcovr": {"command": "gcovr", "environment": "XGEN_GCOVR", "version": "8.3"},
+    "pyyaml": {"version": "6.0.3"}
+  },
+  "scope": {
+    "directories": ["include", "src", "tests", "tools", "cmake", "docs", ".github"],
+    "excluded_directories": [".git", "out", "build", "dist", "vendor", "vendors", "third_party", "external", "__pycache__", ".venv"],
+    "root_files": ["CMakeLists.txt", "CMakePresets.json", "Doxyfile", "README.md", "CONTRIBUTING.md", "AGENTS.md", "CHANGELOG.md", "LICENSE", "PROVENANCE.md", "requirements.txt", "pyproject.toml", "MANIFEST.in", ".gitignore", ".gitattributes", ".gitmodules", ".editorconfig", ".clang-format", ".clang-tidy", ".pre-commit-config.yaml"],
+    "text_extensions": [".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".py", ".cmake", ".in", ".md", ".rst", ".txt", ".json", ".yml", ".yaml", ".sh", ".ps1", ".toml"],
+    "text_names": ["CMakeLists.txt", "Doxyfile", "LICENSE"],
+    "format_extensions": [".c", ".h", ".cpp", ".hpp", ".cc", ".hh"]
+  },
+  "coverage": {"line": 80, "branch": 80, "function": 80},
+  "test_label": "unit|integration"
+}
