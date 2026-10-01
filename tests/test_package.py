@@ -20,7 +20,7 @@ class ConsumerTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name) / "consumer with spaces"
+        self.root = Path(self.temporary.name).resolve() / "consumer with spaces"
         (self.root / "tools").mkdir(parents=True)
         self.config = {"schema_version": 1, "standard_version": "1.0.0",
                        "quality_version": "0.1.0", "public_headers": ["include/xgen/bytes"],

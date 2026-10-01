@@ -18,7 +18,7 @@ class QualityTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        self.root = Path(self.temporary.name).resolve()
         (self.root / "tools").mkdir()
         (self.root / "tools/quality.json").write_text(json.dumps({
             "schema_version": 1, "standard_version": "1.0.0", "quality_version": "0.1.0",

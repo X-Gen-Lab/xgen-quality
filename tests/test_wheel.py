@@ -15,7 +15,7 @@ class WheelTests(unittest.TestCase):
     def setUpClass(cls):
         cls.temporary = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.temporary.cleanup)
-        cls.work = Path(cls.temporary.name)
+        cls.work = Path(cls.temporary.name).resolve()
         cls.repository = Path(__file__).resolve().parents[1]
         cls.environment = dict(os.environ)
         cls.environment.pop("PYTHONPATH", None)

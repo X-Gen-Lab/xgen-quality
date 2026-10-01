@@ -190,7 +190,7 @@ typedef long number_t;
 class SpacingGateTests(unittest.TestCase):
     def test_format_rejects_missing_api_group_spacing_without_modifying_source(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             (root / "tools").mkdir()
             (root / "tools/quality.json").write_text(json.dumps({
                 "schema_version": 1, "standard_version": "1.0.0", "quality_version": "0.1.0",
@@ -209,7 +209,7 @@ class SpacingGateTests(unittest.TestCase):
 
     def test_format_only_checks_selected_public_headers(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             (root / "tools").mkdir()
             (root / "tools/quality.json").write_text(json.dumps({
                 "schema_version": 1, "standard_version": "1.0.0", "quality_version": "0.1.0",

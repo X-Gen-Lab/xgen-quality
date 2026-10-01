@@ -30,7 +30,7 @@ jobs:
       - name: Read fixed shared tool source
         id: quality
         env:
-          QUALITY_REPOSITORY: ${{ vars.XGEN_QUALITY_REPOSITORY }}
+          QUALITY_REPOSITORY: ${{ vars.XGEN_QUALITY_REPOSITORY || 'X-Gen-Lab/xgen-quality' }}
         run: |
           python - <<'PY'
           import json, os, re
@@ -48,7 +48,7 @@ jobs:
       - name: Fetch fixed shared quality source explicitly
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          repository: ${{ vars.XGEN_QUALITY_REPOSITORY }}
+          repository: ${{ vars.XGEN_QUALITY_REPOSITORY || 'X-Gen-Lab/xgen-quality' }}
           ref: ${{ steps.quality.outputs.revision }}
           path: out/deps/quality-source
           persist-credentials: false

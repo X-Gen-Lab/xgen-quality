@@ -19,7 +19,7 @@ class CommandTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        self.root = Path(self.temporary.name).resolve()
         self.config = {"schema_version": 1, "standard_version": "1.0.0", "quality_version": "0.1.0",
                        "public_headers": ["include/xgen/demo"], "production_directories": ["src"]}
         self.write("tools/quality.json", json.dumps(self.config) + "\n")
@@ -36,6 +36,16 @@ class CommandTests(unittest.TestCase):
         source = self.write("src/new.c", "int value;\n")
         self.write("vendor/third.c", "third-party\n")
         self.assertEqual(set(self.runner.select_files([])), {source, self.root / "tools/quality.json"})
+
+    def test_root_and_file_aliases_resolve_before_scope_and_text_checks(self):
+        path = self.write("src/demo.c", "int value;\n")
+        alias = self.root / "src" / ".."
+        runner = quality.Runner(alias)
+        selected = runner.select_files([str(alias / "src/demo.c"), str(path)])
+        self.assertEqual(runner.root, self.root)
+        self.assertEqual(selected, [path])
+        runner.check_text(selected)
+        self.assertEqual(runner.report["files"], ["src/demo.c"])
 
     def test_selection_rejects_directories_and_deduplicates_files(self):
         path = self.write("src/group/file.c", "int value;\n")
