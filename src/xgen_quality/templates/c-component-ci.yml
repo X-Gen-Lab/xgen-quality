@@ -65,7 +65,7 @@ jobs:
           cmake -S out/deps/gtest-src -B out/deps/gtest-build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="$GITHUB_WORKSPACE/out/deps/gtest" -DBUILD_GMOCK=OFF -DINSTALL_GTEST=ON -Dgtest_force_shared_crt=ON
           cmake --build out/deps/gtest-build --parallel 2
           cmake --install out/deps/gtest-build
-      - name: Text and Nexus format
+      - name: Text and C/C++ format
         run: |
           python tools/quality.py text
           python tools/quality.py format

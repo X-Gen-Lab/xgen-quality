@@ -39,7 +39,7 @@ CI 分别检查行与分支至少 80%，拒绝零分母；不以 coverage.py 的
 
 定向 wheel 回归使用全新 venv 和 `python -I`，从不相邻、含空格的消费者目录运行，验证模块入口、薄 launcher、错误版本失败及包资源存在。CLI 不依赖源仓库 src 或固定兄弟目录。
 
-包内模板来自 Nexus / CRC 已记录来源；C 组件 CI 模板保存本次根代理已统一的受控快照。消费者使用仓库变量加固定 provider SHA 获取代码，变量未准备时失败。`quality_source.revision` 只表示声明，wheel 安装实际 URL / 归档 hash 分开报告。
+包内模板的来源由 PROVENANCE.md 记录；C 组件 CI 模板保存本次根代理已统一的受控快照。消费者使用仓库变量加固定 provider SHA 获取代码，变量未准备时失败。`quality_source.revision` 只表示声明，wheel 安装实际 URL / 归档 hash 分开报告。
 
 ## 交付边界
 

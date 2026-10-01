@@ -4,7 +4,7 @@
 
 Python 依赖精确版本源自同一 CRC 基线的 20 项工具依赖，集中迁入 pyproject.toml；pip 分发版本和外部工具实际版本有所区别，例如 clang-tidy 包 `19.1.0.1` 提供 LLVM `19.1.0`。依赖仍保留各自上游许可证，未复制其源码到本包。
 
-`.clang-format`、`.editorconfig` 模板通过 CRC 受控副本取自 Nexus `7a203266082ad1f655b6686713b2b7950ba31ec6`，采用 roadmap 工程规范 1.0.0 的选择。保留上游注释；`.clang-tidy` 和 Doxyfile 从 CRC 质量试点调整为模块中立模板。
+`.clang-format`、`.editorconfig` 模板通过 CRC 受控副本取自 Nexus `7a203266082ad1f655b6686713b2b7950ba31ec6`。副本仅调整配置标题和验证工具版本注释，格式选项保持一致；`.clang-tidy` 和 Doxyfile 从 CRC 质量试点调整为模块中立模板。
 
 `templates/c-component-ci.yml` 来自本次共享工具接入期间 CRC 的本地配置快照；它本身不是已在远端运行的证据。三个 C 组件可按 [模板说明](src/xgen_quality/templates/README.md) 受控同步，后续模板归本仓维护。
 
