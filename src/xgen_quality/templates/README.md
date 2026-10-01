@@ -11,3 +11,5 @@
 消费者通过 `importlib.resources.files('xgen_quality').joinpath('templates', NAME)` 读取固定版本模板，复制后审阅 diff。记录采用版本与局部差异；本包不会在检查时修改消费者配置。
 
 CI 模板使用仓库变量 `XGEN_QUALITY_REPOSITORY` 和消费者 quality.json 的 `quality_source.revision`，显式获取固定工具源码。变量缺失或 revision 无效必须失败；没有真实远端地址时不填猜测 URL，不声称 CI 已运行。
+
+当前 `.clang-format` 标题统一为 X-Gen，验证版本为 19.1.5。快照导入时保留上游注释的描述属于历史基线，当前配置以新增空行规则和版本声明为准。

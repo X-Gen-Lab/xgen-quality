@@ -1,6 +1,6 @@
 ---
-# Nexus Embedded Platform - Clang Format Configuration
-# Compatible with clang-format 14+
+# X-Gen C/C++ Formatting Configuration
+# Validated with clang-format 19.1.5
 
 Language: Cpp
 BasedOnStyle: LLVM

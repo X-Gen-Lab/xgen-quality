@@ -11,3 +11,5 @@ Python 依赖精确版本源自同一 CRC 基线的 20 项工具依赖，集中�
 CRC 来源记录没有确认完整源码许可证。本次迁移没有新增授予开源许可证，也没有将 roadmap 的 MIT 许可证套用到本仓。未创建 LICENSE / SPDX 声明；正式公开发布前由仓库所有者确认授权范围和版权说明。
 
 2026-10-01 本地空行规范增补在上述基线上增加 `SeparateDefinitionBlocks: Always`、`KeepEmptyLines` 三项 false 与 `LineEnding: LF`，其余格式选项保留。公开头结构空行检查由本仓新增，范围和 TDD 证据见 [检查说明](docs/header-spacing.md)。
+
+本轮同时将当前 `.clang-format` 标题统一为 X-Gen，验证版本明确为 19.1.5；保留上游注释的描述属于首次导入记录，当前配置标题及新增规则以本轮增补为准。
