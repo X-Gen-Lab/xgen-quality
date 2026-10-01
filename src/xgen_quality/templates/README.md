@@ -3,6 +3,7 @@
 随 xgen-quality 0.1.0 分发；正文权威仍是 roadmap 工程规范 1.0.0。配置来源见包仓库 PROVENANCE.md。
 
 - `.clang-format`、`.editorconfig`：Nexus 受控快照，保持上游注释和真实 formatter 语义。
+- `.clang-format` 明确使用 LF、清除文件/块首和文件末空行、最多保留一个空行、分隔独立定义；公开头的 API 文档组和注释邻接由现有 `format` 门禁补查，不增加另一个 hook。
 - `.clang-tidy`：使用 clang-analyzer、bugprone、performance 检查，自有公开 include 头参与分析。
 - `Doxyfile`：公开 API 严格检查模板；runner 根据消费者 public_headers 覆盖 INPUT，并先检查文件文档。
 - `c-component-ci.yml`：C 组件 CI 快照，假设组件已有 host/release 预设、GoogleTest 消费及对应安装测试；需要审阅组件路径和任务后再采用。

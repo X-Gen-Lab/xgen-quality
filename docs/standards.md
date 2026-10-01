@@ -10,4 +10,4 @@
 
 覆盖率范围：gcovr 子命令测量消费者的真实 C/C++ 生产对象。本仓 Python 使用固定 coverage.py，对 `src/xgen_quality` 的全部 Python 源码测量行/分支，各自执行 80% 门禁；测试、依赖和模板文件不计入生产 Python 分母，不声明该工具未提供的函数指标。安装 wheel 的子进程测试单独记录，不假定自动合入源码覆盖率。
 
-当前已在本地 Windows 验证源代码测试与真实 wheel 消费；Linux CI 配置待远端仓库建立后实际执行。完整状态与复现方式见 [实施记录](implementation-log.md)。
+当前已在本地 Windows 验证源代码测试与真实 wheel 消费；Linux CI 配置待远端仓库建立后实际执行。完整状态与复现方式见 [实施记录](implementation-log.md)。公开头空行检查的自动范围、人工边界和本地增补见 [空行检查说明](header-spacing.md)。

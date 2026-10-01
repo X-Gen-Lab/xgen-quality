@@ -75,8 +75,20 @@ class WheelTests(unittest.TestCase):
                               "r=files('xgen_quality'); "
                               "assert r.joinpath('policy.json').is_file(); "
                               "assert r.joinpath('templates/.clang-format').is_file(); "
-                              "assert r.joinpath('templates/c-component-ci.yml').is_file()"])
+                              "assert r.joinpath('templates/c-component-ci.yml').is_file(); "
+                              "f=r.joinpath('templates/.clang-format').read_text(); "
+                              "assert 'SeparateDefinitionBlocks: Always' in f; "
+                              "assert 'LineEnding: LF' in f"])
         self.assertEqual(result.returncode, 0)
+
+    def test_installed_header_spacing_checker_preserves_source_and_reports_rule(self):
+        source = "/** @brief First. */\nvoid first(void);\n/** @brief Next. */\nvoid next(void);\n"
+        self.invoke([str(self.python), "-I", "-c",
+                     "from xgen_quality.spacing import check_header_spacing; "
+                     f"source={source!r}; issues=check_header_spacing(source); "
+                     "assert len(issues)==1; "
+                     "assert (issues[0].rule, issues[0].previous_line, issues[0].line)==('C-020', 2, 3); "
+                     f"assert source=={source!r}"])
 
 
 if __name__ == "__main__":

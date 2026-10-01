@@ -80,8 +80,14 @@ Cpp11BracedListStyle: true
 DerivePointerAlignment: false
 FixNamespaceComments: true
 IncludeBlocks: Preserve
+KeepEmptyLines:
+  AtStartOfFile: false
+  AtStartOfBlock: false
+  AtEndOfFile: false
+LineEnding: LF
 MaxEmptyLinesToKeep: 1
 ReflowComments: true
+SeparateDefinitionBlocks: Always
 SortIncludes: CaseSensitive
 SortUsingDeclarations: true
 Standard: c++17

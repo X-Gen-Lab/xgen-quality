@@ -14,6 +14,7 @@ import xml.etree.ElementTree as ET
 
 from . import __version__
 from .configuration import QualityError, load_configuration
+from .spacing import check_header_spacing
 
 
 
@@ -187,6 +188,19 @@ class Runner:
         for path in paths:
             self.run([command, f"--style=file:{self.root / '.clang-format'}",
                       "--dry-run", "--Werror", path])
+        diagnostics = []
+        public = [self.inside(name) for name in self.config["public_headers"]]
+        for path in paths:
+            if not any(path == header or path.is_relative_to(header) for header in public):
+                continue
+            for item in check_header_spacing(path.read_text("utf-8")):
+                diagnostics.append({"path": path.relative_to(self.root).as_posix(),
+                                    **vars(item)})
+        self.report["spacing_diagnostics"] = diagnostics
+        if diagnostics:
+            raise QualityError("\n".join(
+                f"{item['path']}:{item['line']}: {item['rule']}: {item['message']}"
+                for item in diagnostics))
 
     def test(self, build, label, configuration):
         self.report["versions"]["ctest"] = self.run(["ctest", "--version"]).strip()

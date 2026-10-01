@@ -9,3 +9,5 @@ Python 依赖精确版本源自同一 CRC 基线的 20 项工具依赖，集中�
 `templates/c-component-ci.yml` 来自本次共享工具接入期间 CRC 的本地配置快照；它本身不是已在远端运行的证据。三个 C 组件可按 [模板说明](src/xgen_quality/templates/README.md) 受控同步，后续模板归本仓维护。
 
 CRC 来源记录没有确认完整源码许可证。本次迁移没有新增授予开源许可证，也没有将 roadmap 的 MIT 许可证套用到本仓。未创建 LICENSE / SPDX 声明；正式公开发布前由仓库所有者确认授权范围和版权说明。
+
+2026-10-01 本地空行规范增补在上述基线上增加 `SeparateDefinitionBlocks: Always`、`KeepEmptyLines` 三项 false 与 `LineEnding: LF`，其余格式选项保留。公开头结构空行检查由本仓新增，范围和 TDD 证据见 [检查说明](docs/header-spacing.md)。
